@@ -10,7 +10,24 @@
 </head>
 <body>
 
-<div id="app"></div>
+<div id="app">
+    <section class="section">
+        <div class="container">
+            <h1 class="title" v-if="message">{{ message }}</h1>
+            <h1 class="title" v-else>No message</h1>
+
+            <input v-model="message"><button v-on:click="add"></button>
+
+            <example-component-name></example-component-name>
+            <ol>
+                <todo-item
+                        v-for="item in itemList"
+                        v-bind:todo="item">
+                </todo-item>
+            </ol>
+        </div>
+    </section>
+</div>
 
 <!-- VueJS -->
 <script src="https://unpkg.com/vue"></script>
