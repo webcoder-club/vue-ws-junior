@@ -4,30 +4,85 @@
     <meta charset="UTF-8">
     <title>VueJS Workshop by WebcoderClub</title>
     <!-- http://bulma.io -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-<div id="app">
-    <section class="section">
+<!--todo: <header start>-->
+<section class="hero is-medium is-primary is-bold">
+    <div class="hero-body">
         <div class="container">
-            <h1 class="title" v-if="message">{{ message }}</h1>
-            <h1 class="title" v-else>No message</h1>
-
-            <input v-model="message"><button v-on:click="add"></button>
-
-            <example-component-name></example-component-name>
-            <ol>
-                <todo-item
-                        v-for="item in itemList"
-                        v-bind:todo="item">
-                </todo-item>
-            </ol>
+            <h1 class="title">
+                VueJS Workshop
+            </h1>
+            <h2 class="subtitle">
+                Basic examples
+            </h2>
         </div>
-    </section>
-</div>
+    </div>
+</section>
+<!--todo: </header end>-->
+
+<section class="section">
+    <div class="container">
+        <!--todo: <app starts here>-->
+        <div id="app">
+            <div class="columns">
+                <div class="column">
+                    <h1 class="title" v-if="message">{{ message }}</h1>
+                    <h1 class="title" v-else>No message</h1>
+
+                    <div class="field has-addons">
+                        <p class="control">
+                            <span class="select">
+                                <select v-model="selectedColor">
+                                  <option v-for="color in colors">{{ color }}</option>
+                                </select>
+                            </span>
+                        </p>
+                        <p class="control">
+                            <input class="input" type="text" placeholder="Type something" v-model="message">
+                        </p>
+                        <p class="control">
+                            <a class="button is-primary" v-on:click="add">
+                                Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <example-component-name></example-component-name>
+                    <ol>
+                        <todo-item
+                                v-for="item in itemList"
+                                v-bind:todo="item"
+                                :key="item.id">
+                        </todo-item>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!--todo: </app ends here>-->
+    </div>
+</section>
+
+<!--todo: <footer start> -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <p>
+                <strong>VueJS Workshop</strong>
+            </p>
+            <p>
+                <a class="icon has-text-primary" href="https://github.com/webcoder-club/vue-ws-junior">
+                    <i class="fa fa-github"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+<!--todo: </footer end> -->
 
 <!-- VueJS -->
 <script src="https://unpkg.com/vue"></script>
