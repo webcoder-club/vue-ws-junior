@@ -7,42 +7,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- custom style -->
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<!--todo: <header start>-->
-<section class="hero is-medium is-primary is-bold">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                VueJS Workshop
-            </h1>
-            <h2 class="subtitle">
-                Basic examples
-            </h2>
+<!--todo: <app starts here>-->
+<div id="app">
+    <!--todo: <header start>-->
+    <section class="hero is-medium is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    VueJS Workshop
+                </h1>
+                <h2 class="subtitle">
+                    Basic examples
+                </h2>
+            </div>
         </div>
-    </div>
-</section>
-<!--todo: </header end>-->
-
-<section class="section">
-    <div class="container">
-        <!--todo: <app starts here>-->
-        <div id="app">
-            <div class="columns">
+    </section>
+    <!--todo: </header end>-->
+    <section class="section" v-cloak>
+        <div class="container">
+            <div class="columns content">
                 <div class="column">
-                    <h1 class="title" v-if="message">{{ message }}</h1>
-                    <h1 class="title" v-else>No message</h1>
+
+                    <h2 class="subtitle is-size-4">Add task </h2>
 
                     <div class="field has-addons">
                         <p class="control">
                             <span class="select">
                                 <select v-model="selectedColor">
-                                  <option v-for="color in colors">{{ color }}</option>
+                                  <option v-for="state in priority" v-bind:value="state.color">{{ state.name }}</option>
                                 </select>
                             </span>
                         </p>
                         <p class="control">
-                            <input class="input" type="text" placeholder="Type something" v-model="message">
+                            <input class="input" type="text" placeholder="Type something" v-model="message" v-on:keypress.enter="add">
                         </p>
                         <p class="control">
                             <a class="button is-primary" v-on:click="add">
@@ -50,6 +51,9 @@
                             </a>
                         </p>
                     </div>
+
+                    <div class="is-size-5">{{ message ? message : 'Add new task!' }}</div>
+
                 </div>
                 <div class="column">
                     <example-component-name></example-component-name>
@@ -63,26 +67,10 @@
                 </div>
             </div>
         </div>
-        <!--todo: </app ends here>-->
-    </div>
-</section>
-
-<!--todo: <footer start> -->
-<footer class="footer">
-    <div class="container">
-        <div class="content has-text-centered">
-            <p>
-                <strong>VueJS Workshop</strong>
-            </p>
-            <p>
-                <a class="icon has-text-primary" href="https://github.com/webcoder-club/vue-ws-junior">
-                    <i class="fa fa-github"></i>
-                </a>
-            </p>
-        </div>
-    </div>
-</footer>
-<!--todo: </footer end> -->
+    </section>
+    <footer-section></footer-section>
+</div>
+<!--todo: </app ends here>-->
 
 <!-- VueJS -->
 <script src="https://unpkg.com/vue"></script>
