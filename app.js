@@ -1,22 +1,5 @@
-Vue.component('example-component-name', {
-    template: '<h2 class="subtitle is-size-4">My tasks</h2>'
-});
-
-Vue.component('footer-section', {
-    template: `<footer class="footer">
-                <div class="container">
-                    <div class="content has-text-centered">
-                        <p>
-                            <strong>WebCoder</strong>
-                        </p>
-                        <p>
-                            <a class="icon has-text-primary" href="https://github.com/webcoder-club/vue-ws-junior">
-                                <i class="fa fa-github"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </footer>`
+Vue.component('subtitle', {
+    template: '<h2 class="subtitle is-size-4"><slot></slot></h2>'
 });
 
 Vue.component('todo-item', {
@@ -46,10 +29,10 @@ let app = new Vue({
     data: {
         message: '',
         priority: {
+            optional: {name: 'Optional', color: 'info'},
             minor: {name: 'Minor', color: 'gray'},
             medium: {name: 'Medium', color: 'primary'},
-            high: {name: 'High', color: 'danger'},
-            optional: {name: 'Optional', color: 'info'}
+            high: {name: 'High', color: 'danger'}
         },
         selectedColor: DEFAULT_COLOR,
         itemList: [

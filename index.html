@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<!--todo: <app starts here>-->
-<div id="app">
     <!--todo: <header start>-->
     <section class="hero is-medium is-primary is-bold">
         <div class="hero-body">
@@ -29,10 +27,13 @@
     <!--todo: </header end>-->
     <section class="section" v-cloak>
         <div class="container">
-            <div class="columns content">
+            <!--todo: <app starts here>-->
+            <div id="app" class="columns content">
                 <div class="column">
 
-                    <h2 class="subtitle is-size-4">Add task </h2>
+                    <subtitle>
+                        Add task
+                    </subtitle>
 
                     <div class="field has-addons">
                         <p class="control">
@@ -56,7 +57,9 @@
 
                 </div>
                 <div class="column">
-                    <example-component-name></example-component-name>
+                    <subtitle>
+                        My tasks
+                    </subtitle>
                     <ol>
                         <todo-item
                                 v-for="item in itemList"
@@ -66,12 +69,25 @@
                     </ol>
                 </div>
             </div>
+            <!--todo: </app ends here>-->
         </div>
     </section>
-    <footer-section></footer-section>
-</div>
-<!--todo: </app ends here>-->
-
+    <!--todo: <footer start>-->
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>WebCoder</strong>
+                </p>
+                <p>
+                    <a class="icon has-text-primary" href="https://github.com/webcoder-club/vue-ws-junior">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!--todo: </footer end>-->
 <!-- VueJS -->
 <script src="https://unpkg.com/vue"></script>
 <script src="app.js"></script>
