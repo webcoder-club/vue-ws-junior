@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<div class="wrapper">
     <!--todo: <header start>-->
     <section class="hero is-medium is-primary is-bold">
         <div class="hero-body">
@@ -25,11 +26,11 @@
         </div>
     </section>
     <!--todo: </header end>-->
-    <section class="section" v-cloak>
+    <section class="section">
         <div class="container">
             <!--todo: <app starts here>-->
             <div id="app" class="columns content">
-                <div class="column">
+                <div class="column" v-cloak>
 
                     <subtitle>
                         Add task
@@ -53,10 +54,10 @@
                         </p>
                     </div>
 
-                    <div class="is-size-5">{{ message ? message : 'Add new task!' }}</div>
+                    <div class="is-size-5" v-cloak>{{ message ? message : 'Add new task!' }}</div>
 
                 </div>
-                <div class="column">
+                <div class="column" v-cloak>
                     <subtitle>
                         My tasks
                     </subtitle>
@@ -88,6 +89,7 @@
         </div>
     </footer>
     <!--todo: </footer end>-->
+</div>
 <!-- VueJS -->
 <script src="https://unpkg.com/vue"></script>
 <script src="app.js"></script>
