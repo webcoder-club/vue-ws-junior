@@ -31,44 +31,53 @@
         <div class="container">
             <!--todo: <app starts here>-->
             <div id="app" class="columns content">
-                <div class="column" v-cloak>
+                <div class="column">
 
-                    <subtitle>
+                    <h2>
                         Add task
-                    </subtitle>
+                    </h2>
 
-                    <div class="field has-addons">
+                    <!--FORM TEMPLATE-->
+                    <!--<div class="field has-addons">
                         <p class="control">
                             <span class="select">
-                                <select v-model="selectedColor">
-                                  <option v-for="state in priority" v-bind:value="state.color">{{ state.name }}</option>
+                                <select>
+                                    <option value="info">Optional</option>
+                                    <option value="gray">Minor</option>
+                                    <option value="primary">Medium</option>
+                                    <option value="danger">High</option>
                                 </select>
                             </span>
                         </p>
                         <p class="control">
-                            <input class="input" type="text" placeholder="Type something" v-model="message" v-on:keypress.enter="add">
+                            <input class="input" type="text" placeholder="Type something">
                         </p>
                         <p class="control">
-                            <a class="button is-primary" v-on:click="add">
+                            <a class="button is-primary">
                                 Add
                             </a>
                         </p>
-                    </div>
-
-                    <div class="is-size-5" v-cloak>{{ message ? message : 'Add new task!' }}</div>
+                    </div>-->
 
                 </div>
-                <div class="column" v-cloak>
-                    <subtitle>
+                <div class="column">
+                    <h2>
                         My tasks
-                    </subtitle>
-                    <ol>
-                        <todo-item
-                                v-for="item in itemList"
-                                v-bind:todo="item"
-                                :key="item.id">
-                        </todo-item>
-                    </ol>
+                    </h2>
+
+                    <!-- LIST TEMPLATE -->
+                    <!--<ol>
+                        <li class="is-size-5">
+                            <span class="item">Learn HTML &amp; CSS</span>
+                        </li>
+                        <li class="is-size-5">
+                            <span class="item">Learn JavaScript</span>
+                        </li>
+                        <li class="is-size-5">
+                            <span class="item">Learn VueJS</span>
+                        </li>
+                    </ol>-->
+
                 </div>
             </div>
             <!--todo: </app ends here>-->
